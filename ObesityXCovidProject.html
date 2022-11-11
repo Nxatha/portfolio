@@ -48,38 +48,29 @@
 					<section id="two">
 						<h2>Exploratory Data Analysis </h2>
 						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/obesitycovid.jpg" class="image fit thumb"><img src="images/thumbs/obesitycovid.jpg" alt="" /></a>
-								<h3>Obesity and Covid Worldwide by Income class</h3>
-								<p>Work in Progress. Full project document will be up after i refine my data reports/visualization and analysis using google data editor and R respectively.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/trade balance dashboard final.jpg" class="image fit thumb"><img src="images/thumbs/trade balance dashboard final.jpg" alt="" /></a>
-								<h3>Trade Deficits: A comparison of 3 Income class economies  </h3>
-								<p>Work in progress. Full project story will be up after i dive deeper into the data to give a more comprehensive story</p>
-							</article>
-							<!-- hide these till i have new projects 
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-								<h3>Tortor metus commodo</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-								<h3>Quam neque phasellus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>-->
-						</div>
+						
+								<h3>Data Extraction and Detection of Outliers</h3>
+								
+								<p>Data extracted from source websites is in Excel format and was combined using the vlookup function in excel <br><a href="images/vlookup.jpg" class="image fit thumb"><img src="images/vlookup.jpg" alt="" /></a> <br>
+									Possible outliers detected by Excel scatterplots were visualized on Data Studio by Google: <br>
+<a href="https://datastudio.google.com/s/h0U8o_P515A"> Countries with most Covid deaths and their obesity rates<br>
+	                                           Among the most Covid Death Countries were USA, Brazil and India, countries that have moderately high tourism rates. It would be interesting to look at the Type 1 and Type 2 Diabetes rates of these countries.  
+<a href=https://datastudio.google.com/s/rvNw18L8M9Y"> Countries with least Covid deaths and their obesity rates <br>
+						   Among the least Covid death countries were Pacific small island countries with the highest obesity rates in the world and among the least visited countries in the world. Nauru for instance, had its first covid case in 2022, the highest obesity rate and diabetes rates. Other islands like Marshall Islands vaccinated their populations very quickly and had no deaths.<br>
+									
+						    <h2Final outliers</h2> of covid deaths:USA,Brazil and India and obesity rates:Nauru were detected using the standardization formulae:<br>
+						    <a href="images/standardization.jpg" class="image fit thumb"><img src="images/standardaization.jpg" alt="" /></a><br>
+						    <a href="images/Standardize.jpg" class="image fit thumb"><img src="images/Standardize.jpg" alt="" /></a><br>
+						The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and IS.CD.Outlier in Excel. The data was then aggregated into 4 World Bank income classifications and read into R <br>
+																		       <p style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+         dataByIncome<-read.csv("/Users/user/Desktop/HEALTH DATA/dataByIncome.csv"   #read in as csv format
+      </p>    
+
+																		     
+																		     which was aggregated into income groups and read into R for further analysis. 											     
+						    
+						    Full project document will be up after i refine my data reports/visualization and analysis using google data editor and R respectively.</p>
+										  </div>
 						<ul class="actions">
 							<li><a href="#" class="button">Full Portfolio</a></li>
 						</ul>
