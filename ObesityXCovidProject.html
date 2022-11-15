@@ -28,13 +28,13 @@
 				<!-- One -->
 					<section id="one">
 						<header class="major">
-							<h2> Are richer countries more likely to have higher obersity rates and covid deaths?</h2>
+							<h2> Are richer countries more likely to have higher obesity rates and covid deaths?</h2>
 						</header>
 						<p>A doctor on tiktok posted "most of the critical covid patients had either high blood pressure, type 2 diabetes or obesity. The latter,in a bar, quipped "If you want to be healthy, eat like a poor man".
                To investigate their positions, I looked at the correlation between covid deaths and obesity rates of countries in the world grouped by income(GNI Per Capita income classification).  I will keep the analysis focused on obesity rates and covid deaths by income and post a question on diabetes, which came up often when invesitgating the outlier countries.
                 <br> H0: Richer Countries are not more likely to have higher obesity rates and covid deaths
 		<br> Ha: Countries that are richer are more likely to have higher obesity rates and covid deaths
-							The Data Sources for this project:
+							<br>The Data Sources for this project:
 		<br><a href="https://covid19.who.int/"> WHO Cumulative Covid Death Data by Country July 2022</a>,
 		<br><a href="https://data.worldbank.org/indicator/NY.GNP.PCAP.CD">World Bank GNI Per Capita Data for 2019 Extracted in July 2022</a>, 
 		<br><a href="https://worldpopulationreview.com/country-rankings/obesity-rates-by-country">World Population Review Obesity Rate by Country 2020,extracted in July 2022</a>. 
@@ -53,7 +53,7 @@
 								<h3>Data Extraction and Detection of Outliers</h3>
 								
 								<p>Data extracted from source websites is in Excel format and was combined using the vlookup function in excel <br><a href="images/vlookup.jpg"><img src="images/vlookup.jpg" width="180" height="100" align="center" alt="" /></a> <br>
-									Countries with missing data were deleted first e.g. North Korea.Quick Excel scatterplots revealed possible outliers that were geographically visualized on Data Studio by Google: <br>
+									Countries with missing data were deleted first e.g. North Korea. Quick Excel scatterplots revealed possible outliers that were geographically visualized on Data Studio by Google: <br>
 <a href="https://datastudio.google.com/reporting/7868890c-b5af-4e46-a170-15e8ed24ec11"><img src="images/mostdeaths.jpg" width="600" height="400" alt="" /> <br> Countries with most Covid deaths and their obesity rates</a><br>
 	                                           Among the "most Covid Death" Countries were countries that have moderately high tourism rates. It would be interesting to look at the Diabetes and High Blood Pressure rates or other metabolic disorder rates in these countries. <br>
 <a href="https://datastudio.google.com/reporting/695afe7f-06e1-4953-ae4f-dd777f1467f7"> <img src="images/MostObeseWleastDeaths.jpg" width="600" height="400" alt="" /> <br>Countries with least Covid deaths and their obesity rates</a><br>
@@ -63,15 +63,41 @@
 								
 						    <h4>Final outliers were tabulated using the standardization formulae, eliminating those outside the range(-3.29,3.29): </h4> <br> 
 							 <p>Obesity rates: Nauru was the outlier with the highest Obesity rate in the world. Nauru is also a high income country and had its first covid case in 2022 when it was likely the milder Omicron variant.  However, <a href="https://www.diabetes.co.uk/in-depth/i-have-seen-so-many-funerals-for-such-a-small-island-the-astonishing-story-of-nauru-the-tiny-island-nation-with-the-worlds-highest-rates-of-type-2-diabetes/#:~:text=Nauru%20has%20the%20highest%20rates,of%20the%20population%20is%20obese"> the story of Nauru</a> is tragic and there are several factors that have contributed to its disease burden. <br>
-						        Covid deaths:the final outliers after standardization were :USA,Brazil,India. Follow up on Diabetes Factors and other metabolic disorders plus vaccination rates would be a good way forward when investigating these countries .
+						        Covid deaths:USA,Brazil,India. Follow up on Diabetes Factors and other metabolic disorders that affect immunity plus vaccination rates would be a good way forward when investigating these countries .
 								 <br></p>
 							
 						    <a href="images/standardization.jpeg"><img src="images/standardization.jpeg" width="200" height="100" alt ="" /></a><br>
 						    <a href="images/Standardize.jpg"><img src="images/Standardize.jpg" width="300" height="100" alt="" /></a><br>
 						    The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and Is.CD.Outlier in Excel. <br>
 				                    <a href="images/outlierCode.jpg"><img src="images/outlierCode.jpg" width="300" height="100" alt="" /></a><br>		    
-						   The data was read into R in csv format and 4 outliers excluded from the final data. Data grouped by  income (with outliers already excluded) was also read into R for further analysis <br>
-					           <a href="images/readData.jpg"><img src="images/readData.jpg" width="300" height="250" alt="" /></a><br>	
+						   The data was read into R in csv format and 4 outliers excluded from the final data. Data was grouped by  income  (excluding outliers) was also read into R for further analysis <br>
+					           <a href="images/readData.jpg"><img src="images/readData.jpg" width="300" height="250" alt="" /></a><br>
+							</section>
+							
+							<!-- Three -->
+					<section id="three">
+						<h2>Data Analysis with R </h2>
+						<div class="row">
+						
+							<h4> Plotting distribution of data by income</h4><br>			
+					
+<p>  >ggbarplot(dataByIncome, x = "IncomeClass", y = "TotalDeaths", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$TotalDeaths),sort.val = "asc",rotate=TRUE )</p><br>
+							  <a href="images/Average Obesity Rate.jpg"><img src="images/Average Obesity Rate.jpg" width="300" height="250" alt="" /></a><br>
+								  <a href="images/TotalDeaths.jpg"><img src="images/TotalDeaths.jpg" width="300" height="250" alt="" /></a><br>
+						
+<h4> Testing variables for normality </h4><br>	
+			 <a href="images/qqplots and shapiro tests.jpg"><img src="images/qqplots and shapiro tests.jpg" width="300" height="250" alt="" /></a><br>
+			P-value of shapiro test > 0.05 and qqplot showing a positive correlation of variables with normal distribution.									  <a href="images/Average Obesity Rate.jpg"><img src="images/Average Obesity Rate.jpg" width="300" height="250" alt="" /></a><br>
+								  <a href="images/TotalDeaths.jpg"><img src="images/TotalDeaths.jpg" width="300" height="250" alt="" /></a><br>
+				Both the shapiro tests and quantile-quantile plots confirm the data are not significatly different from the normal distribution and so we can proceed with a pearson correlation test. <br>
+<h4> Testing the correlation of Obesity rates and Covid deaths </h4><br>	
+							
+							
+							
+							
+							
+							
+						
 																		         
 
 																		  					     
@@ -83,8 +109,8 @@
 						</ul>
 					</section>
 
-				<!-- Three -->
-					<section id="three">
+				<!-- Four -->
+					<section id="four">
 						<h2>Get In Touch</h2>
 						<p></p>
 						<div class="row">
@@ -119,9 +145,9 @@
 						</div>
 					</section>
 
-				<!-- Four -->
+				<!-- Five -->
 				<!--
-					<section id="four">
+					<section id="five">
 						<h2>Elements</h2>
 						<section>
 							<h4>Text</h4>
