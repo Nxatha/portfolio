@@ -19,7 +19,7 @@
 					<a href="#" class="image avatar"><img src="images/IMG_1228.jpeg" alt="" /></a>
 					<h1><strong>My first portfolio project </strong>  <br />
 						Inspired by bar conversations and a tiktok post?  <br />
-					</a>Data will be cleaned and analysed using software : MSExcel and R </h1>
+					</a>Data will be analysed using software : MSExcel and R </h1>
 				</div>
 			</header>
 
@@ -53,21 +53,21 @@
 								
 								<p>Data extracted from source websites is in Excel format and was combined using the vlookup function in excel <br><a href="images/vlookup.jpg"><img src="images/vlookup.jpg" width="180" height="100" align="center" alt="" /></a> <br>
 									Countries with missing data were deleted first e.g. North Korea.Quick Excel scatterplots revealed possible outliers that were geographically visualized on Data Studio by Google: <br>
-<a href="https://datastudio.google.com/reporting/7868890c-b5af-4e46-a170-15e8ed24ec11"><img src="images/mostdeaths.jpg" width="600" height="400" alt="" /> Countries with most Covid deaths and their obesity rates</a><br>
+<a href="https://datastudio.google.com/reporting/7868890c-b5af-4e46-a170-15e8ed24ec11"><img src="images/mostdeaths.jpg" width="600" height="400" alt="" /> <br> Countries with most Covid deaths and their obesity rates</a><br>
 	                                           Among the "most Covid Death" Countries were countries that have moderately high tourism rates. It would be interesting to look at the Diabetes and High Blood Pressure rates or other metabolic disorder rates in these countries. <br>
-<a href="https://datastudio.google.com/reporting/695afe7f-06e1-4953-ae4f-dd777f1467f7"> <img src="images/MostObeseWleastDeaths.jpg" width="600" height="400" alt="" /> Countries with least Covid deaths and their obesity rates</a><br>
+<a href="https://datastudio.google.com/reporting/695afe7f-06e1-4953-ae4f-dd777f1467f7"> <img src="images/MostObeseWleastDeaths.jpg" width="600" height="400" alt="" /> <br>Countries with least Covid deaths and their obesity rates</a><br>
 						   Among the "least Covid death countries" were Pacific small island countries with the highest obesity rates in the world and among the least visited countries in the world. <br>
 					         Using Excel pivot tables and charts the data was quickly grouped into 4 World Bank income classifications. <br>		
 							 <a href="images/pivot tables and bar charts.jpg"><img src="images/pivot tables and bar charts.jpg" width="300" height="200" align="center" alt="" /></a><br>
 								
 						    <h4>Final outliers were tabulated using the standardization formulae, eliminating those outside the range(-3.29,3.29): </h4> <br> 
-							 Obesity rates: Nauru was the outlier with the highest Obesity rate in the world. Nauru is also a high income country and had its first covid case in 2022 when it was likely the milder Omicron variant.  However, <a href="https://www.diabetes.co.uk/in-depth/i-have-seen-so-many-funerals-for-such-a-small-island-the-astonishing-story-of-nauru-the-tiny-island-nation-with-the-worlds-highest-rates-of-type-2-diabetes/#:~:text=Nauru%20has%20the%20highest%20rates,of%20the%20population%20is%20obese"> the story of Nauru</a> is tragic and there are several factors that have contributed to its disease burden. <br
+							 <p>Obesity rates: Nauru was the outlier with the highest Obesity rate in the world. Nauru is also a high income country and had its first covid case in 2022 when it was likely the milder Omicron variant.  However, <a href="https://www.diabetes.co.uk/in-depth/i-have-seen-so-many-funerals-for-such-a-small-island-the-astonishing-story-of-nauru-the-tiny-island-nation-with-the-worlds-highest-rates-of-type-2-diabetes/#:~:text=Nauru%20has%20the%20highest%20rates,of%20the%20population%20is%20obese"> the story of Nauru</a> is tragic and there are several factors that have contributed to its disease burden. <br>
 						        Covid deaths:the final outliers after standardization were :USA,Brazil,India. Follow up on Diabetes Factors and other metabolic disorders plus vaccination rates would be a good way forward when investigating these countries .
-							  <br>
+								 <br></p>
 							
 						    <a href="images/standardization.jpeg"><img src="images/standardization.jpeg" width="200" height="100" alt ="" /></a><br>
 						    <a href="images/Standardize.jpg"><img src="images/Standardize.jpg" width="300" height="100" alt="" /></a><br>
-						    The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and IS.CD.Outlier in Excel. <br>
+						    The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and Is.CD.Outlier in Excel. <br>
 				                    <a href="images/outlierCode.jpg"><img src="images/outlierCode.jpg" width="300" height="100" alt="" /></a><br>		    
 						   The data was read into R in csv format and 4 outliers excluded from the final data. Data grouped by  income (with outliers already excluded) was also read into R for further analysis <br>
 					           <a href="images/readData.jpg"><img src="images/readData.jpg" width="300" height="250" alt="" /></a><br>	
