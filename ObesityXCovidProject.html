@@ -66,8 +66,8 @@
 						    <a href="images/standardization.jpeg"><img src="images/standardization.jpeg" width="200" height="100" alt ="" /></a><br>
 						    <a href="images/Standardize.jpg"><img src="images/Standardize.jpg" width="300" height="100" alt="" /></a><br>
 							
-							<p><h5>Obesity rates:</h5>Nauru was the outlier with the highest Obesity rate in the world. Nauru is also a high income country and had its first covid case in 2022 when it was likely the milder Omicron variant.  However, <a href="https://www.diabetes.co.uk/in-depth/i-have-seen-so-many-funerals-for-such-a-small-island-the-astonishing-story-of-nauru-the-tiny-island-nation-with-the-worlds-highest-rates-of-type-2-diabetes/#:~:text=Nauru%20has%20the%20highest%20rates,of%20the%20population%20is%20obese"> the story of Nauru</a> is tragic and there are several factors that have contributed to its disease burden. <br>
-							<h5>Covid deaths:</h5> USA,Brazil,India. Follow up on Diabetes Factors and other metabolic disorders that affect immunity plus vaccination rates would be a good way forward when investigating these countries .
+							<p><h5>Obesity rates:</h5>Nauru was the outlier with the highest Obesity rate in the world. Nauru is also a high income country and had its first covid case in 2022 when it was likely the milder Omicron variant.  However, <a href="https://www.diabetes.co.uk/in-depth/i-have-seen-so-many-funerals-for-such-a-small-island-the-astonishing-story-of-nauru-the-tiny-island-nation-with-the-worlds-highest-rates-of-type-2-diabetes/#:~:text=Nauru%20has%20the%20highest%20rates,of%20the%20population%20is%20obese"> the story of Nauru</a> is tragic and there are several factors that have contributed to its disease burden. <br></p>
+							<p><h5>Covid deaths:</h5> USA,Brazil,India. Follow up on Diabetes Factors and other metabolic disorders that affect immunity plus vaccination rates would be a good way forward when investigating these countries .
 								 <br></p>
 						   <p> The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and Is.CD.Outlier in Excel. <br></p>
 				                    <a href="images/outlierCode.jpg"><img src="images/outlierCode.jpg" width="300" height="100" alt="" /></a><br>		    
@@ -80,17 +80,14 @@
 						<h2>Data Analysis with R </h2>
 						<div class="row">
 						
-							<h4> Plotting distribution of data by income</h4><br>			
-					
-<p>  >ggbarplot(dataByIncome, x = "IncomeClass", y = "TotalDeaths", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$TotalDeaths),sort.val = "asc",rotate=TRUE )<br>
-  >ggbarplot(dataByIncome, x = "IncomeClass", y = "Obesity Rate", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$AverageObesityRate),sort.val = "asc",rotate=TRUE )</p>
-							  <a href="images/Average Obesity Rate.jpg"><img src="images/Average Obesity Rate.jpg" width="300" height="250" alt="" /></a><br>
-								  <a href="images/TotalDeaths.jpg"><img src="images/TotalDeaths.jpg" width="300" height="250" alt="" /></a><br>
+							<h4> Plotting distribution of data by income including and excluding outliers using the ggbarplot function in R. (Did not insert code image - too lengthy because of warnings!)</h4><br>			
+							  <a href="images/barplots.jpg"><img src="images/barplots.jpg" width="600" height="400" alt="" /></a><br>
+			
 <div class="row">						
 <p><h4> Testing variables for normality </h4><br>	
 			<br> <img src="images/qqplots and shapiro tests.jpg"/><br>
-			<p>P-value of shapiro test > 0.05 means we fail to reject the Null Hypothesis that data distribution is significantly different normal. QQplots are a visual check that confirm the covariation beteen variables is linear and  correlation of variables with normal distribution.									  <a href="images/Obesity qqplot.jpg"><img src="images/Obesity qqplot.jpg" width="300" height="250" alt="" /></a><br>
-								  <a href="images/deaths qqplot.jpg"><img src="images/deaths qqplot.jpg" width="300" height="250" alt="" /></a><br></p>
+			<p>P-value of shapiro test > 0.05 means we fail to reject the Null Hypothesis that data distribution is significantly different normal. QQplots are a visual check that confirm the covariation beteen variables is linear and  correlation of variables with normal distribution.</p>									  <a href="images/Obesity qqplot.jpg"><img src="images/Obesity qqplot.jpg" width="300" height="250" alt="" /></a>
+								  <a href="images/deaths qqplot.jpg"><img src="images/deaths qqplot.jpg" width="300" height="250" alt="" /></a><br>
 	<br></p></div>
 <div class="row">							
 <p><h4> Testing the correlation of Obesity rates and Covid deaths </h4><br>	
