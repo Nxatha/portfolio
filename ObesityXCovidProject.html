@@ -82,25 +82,33 @@
 						
 							<h4> Plotting distribution of data by income</h4><br>			
 					
-<p>  >ggbarplot(dataByIncome, x = "IncomeClass", y = "TotalDeaths", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$TotalDeaths),sort.val = "asc",rotate=TRUE )</p><br>
-<p>  >ggbarplot(dataByIncome, x = "IncomeClass", y = "Obesity Rate", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$AverageObesityRate),sort.val = "asc",rotate=TRUE )</p>
+<p>  >ggbarplot(dataByIncome, x = "IncomeClass", y = "TotalDeaths", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$TotalDeaths),sort.val = "asc",rotate=TRUE )<br>
+  >ggbarplot(dataByIncome, x = "IncomeClass", y = "Obesity Rate", fill= heat.colors(4,rev=TRUE), label=sort(dataByIncome$AverageObesityRate),sort.val = "asc",rotate=TRUE )</p>
 							  <a href="images/Average Obesity Rate.jpg"><img src="images/Average Obesity Rate.jpg" width="300" height="250" alt="" /></a><br>
 								  <a href="images/TotalDeaths.jpg"><img src="images/TotalDeaths.jpg" width="300" height="250" alt="" /></a><br>
 <div class="row">						
-<br><h4> Testing variables for normality </h4><br>	
+<p><h4> Testing variables for normality </h4><br>	
 			<br> <img src="images/qqplots and shapiro tests.jpg"/><br>
-			P-value of shapiro test > 0.05 means we fail to reject the Null Hypothesis that data distribution is significantly different normal. QQplots are a visual check that confirm the covariation beteen variables is linear and  correlation of variables with normal distribution.									  <a href="images/Obesity qqplot.jpg"><img src="images/Obesity qqplot.jpg" width="300" height="250" alt="" /></a><br>
-								  <a href="images/deaths qqplot.jpg"><img src="images/deaths qqplot.jpg" width="300" height="250" alt="" /></a><br>
-	<br></div>
+			<p>P-value of shapiro test > 0.05 means we fail to reject the Null Hypothesis that data distribution is significantly different normal. QQplots are a visual check that confirm the covariation beteen variables is linear and  correlation of variables with normal distribution.									  <a href="images/Obesity qqplot.jpg"><img src="images/Obesity qqplot.jpg" width="300" height="250" alt="" /></a><br>
+								  <a href="images/deaths qqplot.jpg"><img src="images/deaths qqplot.jpg" width="300" height="250" alt="" /></a><br></p>
+	<br></p></div>
 <div class="row">							
-<h4> Testing the correlation of Obesity rates and Covid deaths </h4><br>	
-							<p> We will use the Pearsons Correlation test with a 95% confidence interval for Data by Income with excluded outliers and with included outliers. Below is the code for generating scatterplots <br>
+<p><h4> Testing the correlation of Obesity rates and Covid deaths </h4><br>	
+							<p> We will use the Pearson Correlation test with a 95% confidence interval for Data by Income with excluded outliers and with included outliers. Below is the code for generating scatterplots <br>
 					<br> <img src="images/Pearson Correlation Scatter plots.jpg"/><br>
 								
-								The scatterplots below give us high correlations on both datasets with a significant p-value <0.05. </p><br>
-	  <a href="images/Correlation plots.jpg"><img src="images/Correlation plots.jpg" width="300" height="250" alt="" /></a><br>
-							</div>
-							
+								The scatterplots below give us high correlations (R value) on both datasets with a significant p-value <0.05. The data that doesnt exclude outliers appears to have an even stronger correlation with R closer to 1 and the smallest p-value of the two </p><br>
+	  <a href="images/Correlation plots.jpg"><img src="images/Correlation plots.jpg" width="500" height="250" alt="" /></a><br>
+	
+		We can run the correlation test to obtain the confidence intervals, t-test statistic and actual p-values<br>				
+			 <img src="images/Correlation test.jpg"/><br></p>
+	</div>
+						
+						
+<div class="row">						
+<p><h3>Conclusion </h3><br>	
+	
+	</div>
 							
 							
 							
@@ -109,9 +117,7 @@
 						
 																		         
 
-																		  					     
-						    
-						    Full project document will be up after i refine my data reports/visualization and analysis using google data editor and R respectively.</p>
+																		  					
 										  </div>
 						<ul class="actions">
 							<li><a href="#" class="button">Full Project</a></li>
