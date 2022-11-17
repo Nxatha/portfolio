@@ -55,10 +55,10 @@
 								<p>Data extracted from source websites is in Excel format and was combined using the vlookup function in excel <br><a href="images/vlookup.jpg"><img src="images/vlookup.jpg" width="180" height="100" align="center" alt="" /></a> <br>
 						   Countries with missing data were deleted first e.g. North Korea. Quick Excel scatterplots revealed possible outliers (Extreme cases on both variables) that were geographically visualized on Data Studio by Google: <br>
 <a href="https://datastudio.google.com/reporting/7868890c-b5af-4e46-a170-15e8ed24ec11"><img src="images/mostdeaths.jpg" width="600" height="400" alt="" /> <br> Countries with most Covid deaths and their obesity rates</a><br>
-	                                           Among the "most Covid Death" Countries were countries that have moderately high tourism rates. It would be interesting to look at the Diabetes rates of these countries. A 2022 article by Medical News Today lists these same countries as top 3 in Type 1 Diabetes prevalance suggesting a relationship to be investigated:  <br>									
+	                                           Among the "most Covid deaths" were countries that have moderately high tourism rates. It would be interesting to look at the Diabetes rates of these countries. A 2022 article by Medical News Today lists these same countries as top 3 in Type 1 Diabetes prevalance suggesting a relationship to be investigated:  <br>									
 									
 <a href="https://datastudio.google.com/reporting/695afe7f-06e1-4953-ae4f-dd777f1467f7"> <img src="images/MostObeseWleastDeaths.jpg" width="600" height="400" alt="" /> <br>Countries with least Covid deaths and their obesity rates</a><br>
-						   Among the "least Covid death countries" were Pacific small island countries with the highest obesity rates in the world and among the least visited countries in the world. <br>
+						   Among the "least Covid deaths " were Pacific small island countries with the highest obesity rates in the world and among the least visited countries in the world. <br>
 									
 			<h4>Final outliers were tabulated using the standardization formulae, eliminating those outside the range(-3.29,3.29): </h4> <br> 
 							
@@ -73,8 +73,8 @@
 								</p> <br>
 						   <p> The data was coded 0 or 1 if they were outside the range (-3.29,3.29) into variables IS.OB.Outlier and Is.CD.Outlier in Excel. <br></p>
 				                    <a href="images/outlierCode.jpg"><img src="images/outlierCode.jpg" width="300" height="100" alt="" /></a><br>																
-					          Using Excel pivot tables and charts the data was quickly grouped into 4 World Bank income classifications. <br>		
-						  <a href="images/pivot tables and bar charts.jpg"><img src="images/pivot tables and bar charts.jpg" width="600" height="400" align="center" alt="" /></a><br>		
+					          <p>Using Excel pivot tables and charts the data was quickly grouped into 4 World Bank income classifications. <br>		
+						  <a href="images/pivot tables and bar charts.jpg"><img src="images/pivot tables and bar charts.jpg" width="600" height="400" align="center" alt="" /></a><br>		</p>
 		    
 						   <p>The health data was read into R in csv format and 4 outliers excluded from the final data. Data grouped by  income  (excluding outliers) was also read into R for further analysis <br>
 					           <a href="images/readData.jpg"><img src="images/readData.jpg" width="300" height="250" alt="" /></a><br>
@@ -90,23 +90,24 @@
 							  <a href="images/barplots.jpg"><img src="images/barplots.jpg" width="600" height="400" alt="" /></a><br>
 			
 <div class="row">						
-<p><h4> Testing variables for normality </h4><br>	
+	<header><h4> Testing variables for normality </h4></header><br>	
 			<br> <img src="images/qqplots and shapiro tests.jpg"/><br>
 			<p>P-value of shapiro test > 0.05 means we fail to reject the Null Hypothesis that data distribution is significantly different normal. QQplots are a visual check that confirm the covariation beteen variables is linear and  correlation of variables with normal distribution.</p>									  <a href="images/Obesity qqplot.jpg"><img src="images/Obesity qqplot.jpg" width="300" height="250" alt="" /></a>
 								  <a href="images/deaths qqplot.jpg"><img src="images/deaths qqplot.jpg" width="300" height="250" alt="" /></a><br>
 	<br></p></div>
 <div class="row">							
-<p><h4> Testing the correlation of Obesity rates and Covid deaths </h4><br>	
+<header><h4> Testing the correlation of Obesity rates and Covid deaths </h4></header><br>	
 							<p> We will use the Pearson Correlation test with a 95% confidence interval for Data by Income with excluded outliers and with included outliers. Below is the code for generating scatterplots <br>
 					<br> <img src="images/Pearson Correlation Scatter plots.jpg"/><br>
 								
 								The scatterplots below give us high correlation coefficient values(R value) on both datasets with a significant p-value <0.05.  </p><br>
 	  <a href="images/Correlation plots.jpg"><img src="images/Correlation plots.jpg" width="500" height="250" alt="" /></a><br>
 	
-		<p>Running the correlation test to obtain the confidence intervals, t-test statistic and actual p-values.<br>				
+		<p>Running the correlation test to obtain the confidence intervals and actual R and p-values.<br>				
 			 <img src="images/Correlation test.jpg"/><br></p>
 	</div>
-	<p> Now that we have established that the variables are correlated and linear, we can fit a linear regression model to explain the relationship between covid deaths and obesity rates as country incomes rise. </p><br>
+						<header><h4> Fitting a linear regression model </h4</header>
+	<p> Now that we have established that the variables are correlated (~.99 R) and linear, we can fit a linear regression model to explain the relationship between covid deaths and obesity rates as country incomes rise. </p><br>
 		 
 			        <img src="images/glm.jpg"/><br></p>		
 	
@@ -119,17 +120,19 @@
 		               
 				<img src="images/glmsLog10.jpg"/><br></p>
 		
-		<p>This time, only the log linear model that excludes outliers gives a significant relationship between covid deaths and obesity rate p<0.05 = 0.043. The standard errors are also small which suggests the log linear model with excluded outliers is a better fit for the data. We can therefore accept Ha: Richer countries  are more likely to have higher obesity and covid death rates and the relationship is  descibed by the log linear model below  </p><br>
+		<p>This time, only the log linear model that excludes outliers gives a significant relationship between covid deaths and obesity rate p<0.05 = 0.043. The standard errors are also small which suggests the observed and expected values are not far from each other and so the log linear model with excluded outliers is a better fit for the data. We can therefore accept Ha: Richer countries  are more likely to have higher obesity and covid death rates. This relationship is  descibed by the log linear model below  </p><br>
 			  
 			       <p align=center> glm 3 : log10Deaths = 4.05631 + 0.09362*ObesityRate + E </p<br>
 				       
-		<br>
+		<p> A plot of the residuals (E) from the  log linear model with excluded outliers (glm3 ) to see whether the model suitably explains the data is done below. It shows varying distances from the mean with the second residual being much futher from the mean <br>
+			
+		<img src="images/resid code.jpg" /><br>	
+	       <a href="images/resid plot.jpg"><img src="images/resid plot.jpg" width="200" height="400" alt="" /></a><br>
+		
+	        <p>This suggests that our current log linear regression is not enough to explain covid deaths and more variables or possible interactions need to be added for a better fit. For example: we could add Type 1 Diabetes to the model and other metabolic disorders. 
 				   			       										
 <div class="row">						
-<p><h3>Conclusion </h3><br>
-	
-	
-	
+
 	
 	
 	</div>
