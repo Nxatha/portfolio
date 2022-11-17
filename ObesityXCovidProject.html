@@ -111,10 +111,10 @@
 		 
 			        <img src="images/glm.jpg"/><br></p>		
 	
-	<p> Both linear models  (included outliers and excluded outliers) show a significant linear relationship between deaths and obesity rates with p-value <0.05 = 0.043 as well as a significant intercept value on the linear relationship p-value = 0.0089.  </p><br>
+	<p> Both linear models  (included outliers and excluded outliers) show a significant linear relationship between deaths and obesity rates with p-value <0.05 = 0.043 as well as a significant intercept value on the linear relationship p-value = 0.0089.  </p>
 		
-				<p align=center> glm 1 : Total Deaths = -836703 + 103032*ObesityRate + E </p<br>
-				<p align=center> glm 2 : Total Deaths = -1216060 + 154637*ObesityRate + E </p<br>
+							<p align=center> glm 1 : Total Deaths = -836703 + 103032*ObesityRate + E <br>
+							<p align=center> glm 2 : Total Deaths = -1216060 + 154637*ObesityRate + E </p><br>
 					
 	<p> However the standard errors associated with the model are too large which brings to question the suitability of our linear regression Model. I fitted a log linear model this time, using log10 transformed covid death data  </p><br>
 		               
@@ -122,7 +122,7 @@
 		
 		<p>This time, only the log linear model that excludes outliers gives a significant relationship between covid deaths and obesity rate p<0.05 = 0.043. The standard errors are also small which suggests the observed and expected values are not far from each other and so the log linear model with excluded outliers is a better fit for the data. We can therefore accept Ha: Richer countries  are more likely to have higher obesity and covid death rates. This relationship is  descibed by the log linear model below  </p><br>
 			  
-			       <p align=center> glm 3 : log10Deaths = 4.05631 + 0.09362*ObesityRate + E </p<br>
+			      glm 3 : log10Deaths = 4.05631 + 0.09362*ObesityRate + E <br>
 				       
 		<p> A plot of the residuals (E) from the  log linear model with excluded outliers (glm3 ) to see whether the model suitably explains the data is done below. It shows varying distances from the mean with the second residual being much futher from the mean <br>
 			
